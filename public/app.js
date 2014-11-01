@@ -1,4 +1,4 @@
-function(){
+$(function(){
 
 	$('#addTeam').on('click', function(){
 		console.log('working')
