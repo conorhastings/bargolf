@@ -27,6 +27,7 @@ $(function(){
 
 			bars.forEach(function(name){
 				total = total + parseInt(name.score)
+				console.log(total)
 
 				$('.yourScore').append('<tr><td>'+name.name+'</td><td>'+name.score+'</td></tr>')
 
