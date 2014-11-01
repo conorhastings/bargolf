@@ -16,7 +16,11 @@ end
 
 
 get('/') do
-	erb(:index)
+	if(session[:id])
+		redirect '/game'
+	else
+		erb(:index)
+	end
 end
 
 post('/teams') do
