@@ -1,4 +1,4 @@
-$(function(){
+function(){
 
 	$('#addTeam').on('click', function(){
 		console.log('working')
@@ -29,6 +29,18 @@ $(function(){
 
 			})
 			$('.totalScore').text(total)
+
+			$.get('/leaderboard').done(function(){
+				$('.leaderboard').empty()
+				leaders = JSON.parse(response)
+				console.log(response)
+				$('.leaderboard').append('<tr><td>Team Name</td><td>Score</td></tr>')
+				leaders.forEach(function(leader){
+					$('.leaderboard').append('<tr><td>'+leader.team+'</td><td>'+leader.score+'</td></tr>')
+
+
+				})
+			})
 		})
 
 	})
@@ -50,16 +62,6 @@ $(function(){
 	})
 
 
-	$.get('/leaderboard', function(response){
-		leaders = JSON.parse(response)
-		console.log(response)
-		$('.leaderboard').append('<tr><td>Team Name</td><td>Score</td></tr>')
-		leaders.forEach(function(leader){
-			$('.leaderboard').append('<tr><td>'+leader.team+'</td><td>'+leader.score+'</td></tr>')
-
-
-		})
-	})
 
 
 
