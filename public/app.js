@@ -60,6 +60,8 @@ $(function(){
 		$('.totalScore').text(total)
 
 	})
+
+	
 	$.get('/leaderboard').done(function(response2){
 		$('.leaderboard').empty()
 		leaders = JSON.parse(response2)
