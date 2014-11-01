@@ -4,6 +4,8 @@ $(function(){
 		console.log('working')
 		$.post('/teams', {team:$('#team').val(), password:$('#password').val()}).done(function(response){
 			console.log(response)
+			$('#team').val('')
+			$('#password').val('')
 		})
 	})
 	$('#login').on('click', function(){
