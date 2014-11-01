@@ -30,9 +30,9 @@ $(function(){
 			})
 			$('.totalScore').text(total)
 
-			$.get('/leaderboard').done(function(){
+			$.get('/leaderboard').done(function(response2){
 				$('.leaderboard').empty()
-				leaders = JSON.parse(response)
+				leaders = JSON.parse(response2)
 				console.log(response)
 				$('.leaderboard').append('<tr><td>Team Name</td><td>Score</td></tr>')
 				leaders.forEach(function(leader){
@@ -59,6 +59,17 @@ $(function(){
 		})
 		$('.totalScore').text(total)
 
+	})
+	$.get('/leaderboard').done(function(response2){
+		$('.leaderboard').empty()
+		leaders = JSON.parse(response2)
+		console.log(response)
+		$('.leaderboard').append('<tr><td>Team Name</td><td>Score</td></tr>')
+		leaders.forEach(function(leader){
+			$('.leaderboard').append('<tr><td>'+leader.team+'</td><td>'+leader.score+'</td></tr>')
+
+
+		})
 	})
 
 
