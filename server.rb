@@ -69,7 +69,7 @@ get('/leaderboard') do
 		end
 		leaderboard.push({team:team[:team],score:total_score})
 	end
-	leaderboard.sort_by{ |leader| leader[:score] }
+	leaderboard.sort_by{ |k,v| v[:score] }
 	leaderboard.to_json
 end
 
